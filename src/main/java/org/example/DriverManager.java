@@ -9,22 +9,23 @@ import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 public class DriverManager extends Utils {
-    String browserName = "firefox";
+    LoadProp loadProp = new LoadProp();
+
     public void openBrowser(){
         // Open Chrome browser
-        if (browserName.equalsIgnoreCase("Chrome")) {
+        if (loadProp.getProperty("browserName").equalsIgnoreCase(loadProp.getProperty("chromebrowser"))) {
             driver = new ChromeDriver();
         // Open Edge browser
-        } else if (browserName.equalsIgnoreCase("Edge")){
+        } else if (loadProp.getProperty("browserName").equalsIgnoreCase(loadProp.getProperty("Edgebrowser"))){
             driver = new EdgeDriver();
         // Open Firefox browser
-        } else if (browserName.equalsIgnoreCase("Firefox")) {
+        } else if (loadProp.getProperty("browserName").equalsIgnoreCase(loadProp.getProperty("firefoxbroswer"))) {
             driver = new FirefoxDriver();
         } else {
-            System.out.println("Your browser name " + browserName + " is wrong or not implemented");
+            System.out.println("Your browser name " + loadProp.getProperty("browserName") + " is wrong or not implemented");
         }
         // Open URL
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get(loadProp.getProperty("url"));
         // Maximize the window
         driver.manage().window().maximize();
         // Implying implicit wait

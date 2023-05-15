@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class EmailAFriendPage extends Utils{
+    LoadProp loadProp = new LoadProp();
     // Storing locators
     private By _friendEmail = By.xpath("(//input[starts-with(@placeholder, \"Enter\")])[1]");
     private By _yourEmail = By.xpath("(//input[starts-with(@placeholder, \"Enter\")])[2]");
@@ -16,25 +17,25 @@ public class EmailAFriendPage extends Utils{
 
     public void fillInEmailAFriendDetails_RegisteredUser() {
         // Type friend's email
-        typeText(_friendEmail, "FriendTest@gmail.com");
+        typeText(_friendEmail, loadProp.getProperty("emailAFriendPage_FriendEmail_registeredUser"));
         // Type your email address
-        typeText(_yourEmail, " ");
+        typeText(_yourEmail,loadProp.getProperty("emailAFriendPage_YourEmail_registeredUser"));
         // Type Personal message
-        typeText(_personalMessage, "This product is really good, try it out");
+        typeText(_personalMessage,loadProp.getProperty("emailAFriendPage_PersonalMessage"));
         // Click on Send Email button
         clickOnElement(_sendEmailButton);
     }
 
 
     public void captureActualEmailAFriendMessage() {
-        String expectedReferAFriendMessage = "Your message has been sent to your friend";
+        loadProp.getProperty("emailAFriendPage_ExpectedReferAFriendMessage");
         // Capture & print the message displayed
         String message1ProductName_ReferAProduct = getTextFromElement(_message1ProductName_ReferAProduct);
         String message2_ReferAProduct = getTextFromElement(_message2_ReferAProduct);
         System.out.println("Message displayed to the user on referring a product to a friend: \n" + message1ProductName_ReferAProduct);
         System.out.println(message2_ReferAProduct);
         // Assert to verify if the actual display message matches the expected display message
-        Assert.assertEquals(message2_ReferAProduct, expectedReferAFriendMessage, "The display message is not same");
+        Assert.assertEquals(message2_ReferAProduct, loadProp.getProperty("emailAFriendPage_ExpectedReferAFriendMessage"), "The display message is not same");
 
     }
 }

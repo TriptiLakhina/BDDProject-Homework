@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 
 public class LogInPage extends Utils{
+    LoadProp loadProp = new LoadProp();
     // Storing locators as instance variables
     private By _eMail = By.xpath("//input[contains(@class, 'email')]");
     private By _password = By.xpath("//input[contains(@class,\"password\")]");
@@ -11,9 +12,9 @@ public class LogInPage extends Utils{
 
     public void fillInLoginDetails() {
         // Type your email
-        typeText(_eMail, "TestEmail5@gmail.com");
+        typeText(_eMail,loadProp.getProperty("loginPage_Email"));
         // Type your password
-        typeText(_password, "test@5");
+        typeText(_password,loadProp.getProperty("loginPage_Password"));
         // Click on login button
         clickOnElement(_logInButton);
     }
