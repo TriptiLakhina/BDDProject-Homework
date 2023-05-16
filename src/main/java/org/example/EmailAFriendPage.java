@@ -17,6 +17,8 @@ public class EmailAFriendPage extends Utils{
 
 
     public void fillInEmailAFriendDetails_RegisteredUser() {
+        // explicit wait added for firefox browser synchronization
+        explicitWait_ElementToBeClickable(_friendEmail);
         // Type friend's email
         typeText(_friendEmail, loadProp.getProperty("emailAFriendPage_FriendEmail_registeredUser"));
         // Type your email address
