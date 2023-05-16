@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class EmailAFriendPage extends Utils{
+    // Creating object for LoadProp class to call get property method
     LoadProp loadProp = new LoadProp();
     // Storing locators
     private By _friendEmail = By.xpath("(//input[starts-with(@placeholder, \"Enter\")])[1]");

@@ -5,6 +5,7 @@ import org.testng.Assert;
 
 
 public class HomePage extends Utils{
+    // Creating object for LoadProp class to call get property method
     LoadProp loadProp = new LoadProp();
     // Storing locators as global variables
     private By _registerLink = By.xpath("//a[@href=\"/register?returnUrl=%2F\"]");
@@ -15,10 +16,11 @@ public class HomePage extends Utils{
 
 
     public void verifyHomepageURL(){
-//        String MainWindow = getWindowHandle();
         String homepageURL = getCurrentUrl();
         System.out.println("Homepage URL is: " + homepageURL);
+        // Assert to verify the homepage url
         Assert.assertEquals(homepageURL,loadProp.getProperty("url"),"Url does not match");
+        // Assert to verify homepage url directs the user to the home page
         Assert.assertEquals(homepageURL.contains(getTextFromElement(_logo_Homepage)),true,"URL does not match to the directed page");
     }
 

@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Utils extends BasePage{
     // Reusable method for click on element - No return type, with parameters
@@ -34,6 +35,21 @@ public class Utils extends BasePage{
     public static long timeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         return timestamp.getTime();
+    }
+
+    // Reusable method to open the URL
+    public static void openTheUrl(String url){
+        driver.get(url);
+    }
+
+    // Reusable method for maximizing the window
+    public static void maximizeTheWindow(){
+        driver.manage().window().maximize();
+    }
+
+    // Reusable method for Implicit wait
+    public static void implicitWait(){
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     // Reusable method for explicit wait with condition Element to be clickable

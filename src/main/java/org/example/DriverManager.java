@@ -3,12 +3,11 @@ package org.example;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 public class DriverManager extends Utils {
+    // Creating object for LoadProp class to call get property method
     LoadProp loadProp = new LoadProp();
 
     public void openBrowser(){
@@ -25,11 +24,11 @@ public class DriverManager extends Utils {
             System.out.println("Your browser name " + loadProp.getProperty("browserName") + " is wrong or not implemented");
         }
         // Open URL
-        driver.get(loadProp.getProperty("url"));
+        openTheUrl(loadProp.getProperty("url"));
         // Maximize the window
-        driver.manage().window().maximize();
+        maximizeTheWindow();
         // Implying implicit wait
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        implicitWait();
     }
 
 

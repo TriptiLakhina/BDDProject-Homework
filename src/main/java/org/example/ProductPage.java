@@ -21,7 +21,7 @@ public class ProductPage extends Utils{
     }
 
     public void verifyUserIsOnProductPage(){
- //       Assert.assertEquals(getCurrentUrl().contains(getTextFromElement(_productName_Title)),true,"User is not directed to the correct product page");
+        // Assert to verify the user is directed to the product page
         Assert.assertEquals(verifyUrlContainsElement(_productName_Title),true,"User is not directed to the correct product page");
     }
 }

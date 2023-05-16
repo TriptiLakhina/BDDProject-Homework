@@ -14,9 +14,6 @@ public class MyStepdefs {
     EmailAFriendPage emailAFriendPage = new EmailAFriendPage();
 
 
-
-
-
     @Given("I am on homepage")
     public void iAmOnHomepage() {
         homePage.verifyHomepageURL();

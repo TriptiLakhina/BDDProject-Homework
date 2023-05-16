@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 
 public class RegistrationPage extends Utils{
+    // Creating object for LoadProp class to call get property method
     LoadProp loadProp = new LoadProp();
     private By _firstName = By.xpath("//input[@id=\"FirstName\"]");
     private By _lastName = By.xpath("//input[@id=\"LastName\"]");
@@ -20,7 +21,7 @@ public class RegistrationPage extends Utils{
         // Type Last name
         typeText(_lastName,loadProp.getProperty("registrationPage_LastName"));
         // Select Day of birth from dropdown
-        selectElementByIndex(_dayOfBirth,9);
+        selectElementByIndex(_dayOfBirth, Integer.parseInt(loadProp.getProperty("registrationPage_DayOfBirth")));
         // Select Month of birth from dropdown
         selectElementByValue(_monthOfBirth,loadProp.getProperty("registrationPage_MonthOfBirth"));
         // Select Year of birth from dropdown
